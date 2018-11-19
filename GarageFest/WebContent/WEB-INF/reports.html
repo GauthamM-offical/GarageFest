@@ -91,7 +91,7 @@
           <div class="nav-wrapper">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="home">
+                <a class="nav-link" href="home">
                   <i class="material-icons">edit</i>
                   <span>Blog Dashboard</span>
                 </a>
@@ -133,7 +133,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="reports">
+                <a class="nav-link active" href="reports">
                   <i class="material-icons">reports</i>
                   <span>Reports</span>
                 </a>
@@ -368,25 +368,51 @@
               <!-- End Users By Device Stats -->
               <!-- New Draft Component -->
               <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <!-- Quick Post -->
-                <div class="card card-small h-100">
-                  <div class="card-header border-bottom">
-                    <h6 class="m-0">New Draft</h6>
-                  </div>
-                  <div class="card-body d-flex flex-column">
-                    <form class="quick-post-form">
-                      <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Brave New World"> </div>
-                      <div class="form-group">
-                        <textarea class="form-control" placeholder="Words can be like X-rays if you use them properly..."></textarea>
-                      </div>
-                      <div class="form-group mb-0">
-                        <button type="submit" class="btn btn-accent">Create Draft</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <!-- End Quick Post -->
+                <canvas id="myChart"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+                
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+                
+                
+                
               </div>
               <!-- End New Draft Component -->
               <!-- Discussions Component -->
@@ -592,7 +618,7 @@
       <div class="pp-inner-content">
         <h2>Shards Dashboard Pro</h2>
         <p>A premium & modern Bootstrap 4 admin dashboard template pack.</p>
-        <a class="pp-cta extra-action" href="http://bit.ly/shards-dashboard-pro">Download</a>
+        <a class="pp-cta extra-action" href="http://bit.ly/shards-dashboard-pro">Download</a>        
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -604,5 +630,6 @@
     <script src="scripts/extras.1.1.0.min.js"></script>
     <script src="scripts/shards-dashboards.1.1.0.min.js"></script>
     <script src="scripts/app/app-blog-overview.1.1.0.js"></script>
+    <script src="scripts/Chart.bundle.js"></script>
   </body>
 </html>
